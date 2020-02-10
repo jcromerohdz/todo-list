@@ -1,2 +1,2 @@
 # todo-list
-To Do List - Development
+To Do List - Todo-list
