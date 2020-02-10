@@ -1,3 +1,6 @@
+/* eslint-disable-next-line */
+import Swal from 'sweetalert2';
+
 const projects = (content) => {
   content.innerHTML =  `
     <div class="container">
@@ -20,7 +23,25 @@ const projects = (content) => {
       </div>
     </div>
   `;
+
+  const createProjectWindow = () =>{
+    return `
+          <label for="project_name">Project Name</label>
+          <input type="text" class="form-control">
+      `
+  };
+
+  const createProject = () =>{
+        Swal.fire({
+        title: '<strong>Add Project</strong>',
+        icon: 'info',
+        html: createProjectWindow(),
+        showCloseButton: true,
+        showCancelButton: true,
+        focusConfirm: false,
+        })
+  }
   let createButton = document.querySelector('#createProject');
-  createButton.addEventListener('click', () => console.log("hola"));
+  createButton.addEventListener('click', () => createProject());
 }
 export default projects;

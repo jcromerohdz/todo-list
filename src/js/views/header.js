@@ -1,5 +1,5 @@
-const header = () => {
-  return `
+const header = (content) => {
+  content.innerHTML = `
   <div class="container-fluid bg-dark text-white text-center">
     <div class="container">
       <div class="row">

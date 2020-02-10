@@ -10,7 +10,7 @@ const view = (() => {
 
   const renderHeader = () => {
       let content = document.querySelector('#header');
-      content.innerHTML = header();
+      header(content);
   }
 
   const render = (route) => {
