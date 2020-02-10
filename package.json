@@ -1,0 +1,22 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "Todo list app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcromerohdz/todo-list.git"
+  },
+  "author": "Luis Preza and Christian Romero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcromerohdz/todo-list/issues"
+  },
+  "homepage": "https://github.com/jcromerohdz/todo-list#readme",
+  "devDependencies": {
+    "webpack": "^4.41.5"
+  }
+}
