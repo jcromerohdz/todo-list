@@ -1,6 +1,7 @@
 import header from './header';
 import projects from './projects';
 const view = (() => {
+  let controller;
   const template = () => {
     return `
       <div id="header"></div>
@@ -17,21 +18,24 @@ const view = (() => {
       let content = document.querySelector('#app');
       switch (route) {
         case 'projects':
-          projects(content);
+          projects(content, controller.data.projects, controller.clickHandler);
           break;
         default:
-          projects(content);
+          projects(content, controller.data.projects, controller.clickHandler);
       }
   }
 
-  const setUp = () => {
+  const setUp = (cont) => {
+      controller = cont;
       let content = document.querySelector('#content');
       content.innerHTML = template();
       renderHeader();
       render('projects');
   };
 
-  return {setUp}
+
+
+  return {setUp, render}
 })();
 
 export default view;

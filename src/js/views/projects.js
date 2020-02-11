@@ -1,7 +1,7 @@
-/* eslint-disable-next-line */
-import Swal from 'sweetalert2';
-
-const projects = (content) => {
+const projects = (content, data, clickHandler) => {
+  const items = data.map((x) => {
+    return `<li class="list-group-item">${x}</li>`;
+  });
   content.innerHTML =  `
     <div class="container">
       <div class="row">
@@ -12,11 +12,7 @@ const projects = (content) => {
           </div>
           <div class="col-12 py-3">
             <ul class="list-group">
-              <li class="list-group-item active">Cras justo odio</li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Morbi leo risus</li>
-              <li class="list-group-item">Porta ac consectetur ac</li>
-              <li class="list-group-item">Vestibulum at eros</li>
+              ${items.join('')}
             </ul>
           </div>
         </div>
@@ -24,24 +20,7 @@ const projects = (content) => {
     </div>
   `;
 
-  const createProjectWindow = () =>{
-    return `
-          <label for="project_name">Project Name</label>
-          <input type="text" class="form-control">
-      `
-  };
-
-  const createProject = () =>{
-        Swal.fire({
-        title: '<strong>Add Project</strong>',
-        icon: 'info',
-        html: createProjectWindow(),
-        showCloseButton: true,
-        showCancelButton: true,
-        focusConfirm: false,
-        })
-  }
   let createButton = document.querySelector('#createProject');
-  createButton.addEventListener('click', () => createProject());
+  createButton.addEventListener('click', () => clickHandler());
 }
 export default projects;
