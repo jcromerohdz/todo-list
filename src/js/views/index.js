@@ -18,10 +18,10 @@ const view = (() => {
       let content = document.querySelector('#app');
       switch (route) {
         case 'projects':
-          projects(content, controller.data.projects, controller.clickHandler);
+          projects(content, controller.data.projects, controller.project);
           break;
         default:
-          projects(content, controller.data.projects, controller.clickHandler);
+          projects(content, controller.data.projects, controller.project);
       }
   }
 

@@ -1,6 +1,6 @@
-const projects = (content, data, clickHandler) => {
+const projects = (content, data, controller) => {
   const items = data.map((x) => {
-    return `<li class="list-group-item">${x}</li>`;
+    return `<li class="list-group-item" id="projectClick-${x.id}">${x.name}</li>`;
   });
   content.innerHTML =  `
     <div class="container">
@@ -19,8 +19,10 @@ const projects = (content, data, clickHandler) => {
       </div>
     </div>
   `;
-
+  data.forEach((i) => {
+    document.querySelector('#projectClick-'+i.id).addEventListener('click', (event) => controller.showProject(event));
+  });
   let createButton = document.querySelector('#createProject');
-  createButton.addEventListener('click', () => clickHandler());
+  createButton.addEventListener('click', () => controller.addProject());
 }
 export default projects;
