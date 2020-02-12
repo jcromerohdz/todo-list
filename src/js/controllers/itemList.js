@@ -33,20 +33,21 @@ const itemListController = (()=>{
     icon: 'info',
     html: createTodoWindow(),
     showCloseButton: true,
+    showCancelButton: true,
+    cancelButtonColor: '#d33',
     focusConfirm: false,
-    onClose: () =>{
-
-      let todoForm = getTodo();
-      todoForm.id = data.projects[data.currentProject].getTodoCount();
-
-      if(todoForm.title) {
-        let todo = new Todo(todoForm);
-        data.projects[data.currentProject].todos.push(todo);
-      }
-    },
     })
-    .then (() =>{
-      view.render('itemList');
+    .then ((result) =>{
+      if (result.value){
+        let todoForm = getTodo();
+        todoForm.id = data.projects[data.currentProject].getTodoCount();
+
+        if(todoForm.title) {
+          let todo = new Todo(todoForm);
+          data.projects[data.currentProject].todos.push(todo);
+        }
+        view.render('itemList');
+      }
     });
   }
 
@@ -69,16 +70,18 @@ const itemListController = (()=>{
     icon: 'info',
     html: createTodoWindow(todo),
     showCloseButton: true,
+    showCancelButton: true,
+    cancelButtonColor: '#d33',
     focusConfirm: false,
-    onClose: () =>{
-      todo.fill(getTodo());
-    },
     })
-    .then (() =>{
-      view.render('itemList');
+    .then ((result) =>{
+      if (result.value) {
+        todo.fill(getTodo());
+        view.render('itemList');
+      }
     });
   }
-  
+
 const deleteTodo = (event) => {
   let id = event.target.id.split("-")[1];
   Swal.fire({

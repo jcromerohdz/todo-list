@@ -16,6 +16,7 @@ const view = (() => {
   }
 
   const render = (route) => {
+      localStorage.setItem('todoList', JSON.stringify(controller.data));
       let content = document.querySelector('#app');
       switch (route) {
         case 'projects':

@@ -7,10 +7,10 @@ const createTodoWindow = (item=null) =>{
     <label>Date</label>
     <input type="date" id="todoDate" class="form-control" value="${item ? item.duedate : ""}">
     <label>Priority</label>
-    <select class="custom-select" id="todoPriority" value="${item ? item.priority : ""}">
-      <option value="Low">Low</option>
-      <option value="Medium" selected>Medium</option>
-      <option value="High">High</option>
+    <select class="custom-select" id="todoPriority">
+      <option value="Low" ${item && item.priority=='Low' ? 'selected' : ""}>Low</option>
+      <option value="Medium" ${(!item || item.priority=='Medium' ) ?'selected' : ''}>Medium</option>
+      <option value="High" ${item && item.priority=='High' ? 'selected' : ""}>High</option>
     </select>
     `
 };
