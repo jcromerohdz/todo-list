@@ -1,13 +1,13 @@
-const itemList = (content, data, controller) => {
-  const items = data.map((x) => {
+const itemList = (content, project, controller) => {
+  const items = project.todos.map((x) => {
     return `<tr>
       <td>${x.title}</td>
       <td>${x.duedate}</td>
       <td>${x.priority}</td>
       <td>
-        <button type="button" class="btn btn-info" name="button">Show</button>
-        <button type="button" class="btn btn-success" name="button">Edit</button>
-        <button type="button" class="btn btn-danger" name="button">Delete</button>
+        <button type="button" class="btn btn-info" id="todoShow-${x.id}" name="button">Show</button>
+        <button type="button" class="btn btn-success" id="todoEdit-${x.id}" name="button">Edit</button>
+        <button type="button" class="btn btn-danger" id="todoDelete-${x.id}" name="button">Delete</button>
       </td>
     </tr>`;
   });
@@ -39,10 +39,12 @@ const itemList = (content, data, controller) => {
     </div>
   </div>
   `;
-  // data.forEach((i) => {
-  //   document.querySelector('#projectClick-'+i.id).addEventListener('click', (event) => controller.showProject(event));
-  // });
-  let home = document.querySelector('#home');
-  home.addEventListener('click', () => controller.home());
+  project.todos.forEach((i) => {
+    document.querySelector('#todoShow-'+i.id).addEventListener('click', (event) => controller.showTodo(event));
+    document.querySelector('#todoEdit-'+i.id).addEventListener('click', (event) => controller.editTodo(event));
+    document.querySelector('#todoDelete-'+i.id).addEventListener('click', (event) => controller.deleteTodo(event));
+  });
+  document.querySelector('#home').addEventListener('click', () => controller.home());
+  document.querySelector('#newTodo').addEventListener('click', () => controller.newTodo());
 }
 export default itemList;

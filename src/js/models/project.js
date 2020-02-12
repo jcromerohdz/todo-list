@@ -3,5 +3,11 @@ export default class Project{
     this.id = id;
     this.name = name;
     this.todos = [];
+    this.todoCounter = 0;
+  }
+
+  getTodoCount(){
+    this.todoCounter += 1;
+    return this.todoCounter;
   }
 }

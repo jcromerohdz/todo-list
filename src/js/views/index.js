@@ -22,7 +22,7 @@ const view = (() => {
           projects(content, controller.data.projects, controller.project);
           break;
         case 'itemList':
-          itemList(content, [{title:"test", duedate:"10/10/2020", priority:"mid"}], controller.itemList);
+          itemList(content, controller.data.projects[controller.data.currentProject], controller.itemList);
           break;
         default:
           projects(content, controller.data.projects, controller.project);

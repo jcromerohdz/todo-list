@@ -5,14 +5,17 @@ import itemListController from '../controllers/itemList';
 import Project from '../models/project';
 
 const controller = (() => {
-  let data = {projects: []};
+  let data = {
+    projects: [],
+    currentProject: null,
+  };
   let view;
   let project = projectController;
   let itemList = itemListController;
 
   const setView = (item) =>{
       view = item;
-      let exampleProject = new Project('Example Project');
+      let exampleProject = new Project('Example Project', 0);
       data.projects.push(exampleProject);
       project.setData(data, view);
       itemList.setData(data, view);
