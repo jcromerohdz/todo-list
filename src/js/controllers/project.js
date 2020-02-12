@@ -32,7 +32,7 @@ const projectController = (()=>{
   };
   const showProject = (event) => {
     let id = event.target.id.split("-")[1];
-    console.log(id);
+    view.render('itemList');
   }
   return {setData, addProject, showProject}
 })();
