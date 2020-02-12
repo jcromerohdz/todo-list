@@ -8,11 +8,11 @@ You can find the original project specification [here](https://www.theodinprojec
 
 ## Live Version
 
-[here]()
+[here](https://raw.githack.com/jcromerohdz/todo-list/todo-list/dist/index.html)
 
 ## Built With:
 
-JavaScript, HTML, Bulma framework, CSS.
+JavaScript, HTML, Bootstrap framework, CSS, Sweetalert 2, Webpack.
 
 ## Author
 Luis Preza https://github.com/men32z
