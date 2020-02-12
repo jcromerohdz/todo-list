@@ -1,10 +1,8 @@
-const showTodoWindow = (todo) =>{
-  return `
+const showTodoWindow = (todo) => `
     <b>Title: </b> ${todo.title}<br>
     <b>Description: </b> ${todo.description}<br>
     <b>Priority: </b> ${todo.priority}<br>
     <b>Due Date: </b> ${todo.duedate}<br>
-    `
-};
+    `;
 
 export default showTodoWindow;

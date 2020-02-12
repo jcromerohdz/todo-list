@@ -10,5 +10,5 @@ const header = (content) => {
     </div>
   </div>
   `;
-}
+};
 export default header;
