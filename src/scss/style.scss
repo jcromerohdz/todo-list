@@ -1,0 +1,11 @@
+@import "bootstrap";
+
+.list-group-item {
+  cursor: pointer;
+  &:hover {
+    z-index: 2;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+}
